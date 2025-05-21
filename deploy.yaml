@@ -1,0 +1,11 @@
+- hosts: web
+  become: yes
+  tasks:
+    - name: Stop existing container
+      shell: docker rm -f myapp || true
+
+    - name: Pull latest Docker image
+      shell: docker pull your-dockerhub-user/myapp:latest
+
+    - name: Run Docker container
+      shell: docker run -d -p 3000:3000 --name myapp --env-file .env your-dockerhub-user/myapp:latest
