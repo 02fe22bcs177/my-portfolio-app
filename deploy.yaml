@@ -5,7 +5,8 @@
       shell: docker rm -f myapp || true
 
     - name: Pull latest Docker image
-      shell: docker pull your-dockerhub-user/myapp:latest
+      shell: docker pull 02fe22bcs177/your-correct-repo-name:tag
+
 
     - name: Run Docker container
       shell: docker run -d -p 3000:3000 --name myapp --env-file .env your-dockerhub-user/myapp:latest
