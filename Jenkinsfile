@@ -3,15 +3,15 @@ pipeline {
 
   environment {
     DOCKER_IMAGE = 'myapp:latest'
-    DOCKER_REPO = 'your-dockerhub-user/myapp:latest'
+    DOCKER_REPO = 'your-dockerhub-username/myapp:latest'
   }
 
-  stage('Clone') {
-  steps {
-    git credentialsId: 'github-pat', url: 'https://github.com/02fe22bcs177/my-portfolio-app.git'
-  }
-}
-
+  stages {
+    stage('Clone') {
+      steps {
+        git credentialsId: 'github-pat', url: 'https://github.com/02fe22bcs177/my-portfolio-app.git'
+      }
+    }
 
     stage('Build Docker Image') {
       steps {
@@ -21,7 +21,7 @@ pipeline {
 
     stage('Push to Docker Hub') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'wilfredborges59', passwordVariable: 'Wilfred01@#$')]) {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
           sh """
             echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
             docker tag $DOCKER_IMAGE $DOCKER_REPO
