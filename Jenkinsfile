@@ -6,12 +6,12 @@ pipeline {
     DOCKER_REPO = 'your-dockerhub-username/myapp:latest'
   }
 
-  stages {
-    stage('Clone') {
-      steps {
-        git credentialsId: 'github-pat', url: 'https://github.com/02fe22bcs177/my-portfolio-app.git'
-      }
-    }
+  stage('Clone') {
+  steps {
+    git branch: 'main', credentialsId: 'github-pat', url: 'https://github.com/02fe22bcs177/my-portfolio-app.git'
+  }
+}
+
 
     stage('Build Docker Image') {
       steps {
