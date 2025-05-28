@@ -1,3 +1,4 @@
+# Node base image
 FROM node:18
 
 WORKDIR /app
@@ -7,5 +8,8 @@ RUN npm install
 
 COPY . .
 
+# Make sure upload dir exists
+RUN mkdir -p uploads
+
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
