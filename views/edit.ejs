@@ -1,8 +1,31 @@
-<h2>Edit Portfolio</h2>
-<form action="/portfolios/<%= portfolio.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-  Name: <input name="name" value="<%= portfolio.name %>" /><br/>
-  Role: <input name="role" value="<%= portfolio.role %>" /><br/>
-  Photo: <input type="file" name="photo" /><br/>
-  <button type="submit">Update</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Portfolio</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Edit Portfolio</h2>
+    <form action="/portfolios/<%= portfolio.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="form">
+      <label>Name:</label>
+      <input name="name" value="<%= portfolio.name %>" required />
 
+      <label>Role:</label>
+      <input name="role" value="<%= portfolio.role %>" required />
+
+      <label>Photo:</label>
+      <input type="file" name="photo" accept="image/*" />
+
+      <% if (portfolio.photo) { %>
+        <p>Current Photo:</p>
+        <img src="<%= portfolio.photo %>" width="150" />
+      <% } %>
+
+      <button type="submit" class="btn">Update</button>
+    </form>
+    <a href="/" class="btn back-btn">← Back</a>
+  </div>
+</body>
+</html>
