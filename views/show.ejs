@@ -1,1 +1,10 @@
+<h2><%= portfolio.name %></h2>
+<p>Role: <%= portfolio.role %></p>
+<% if (portfolio.photo) { %>
+  <img src="<%= portfolio.photo %>" width="200" />
+<% } %>
+<a href="/portfolios/<%= portfolio.id %>/edit">Edit</a>
+<form action="/portfolios/<%= portfolio.id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete</button>
+</form>
 
