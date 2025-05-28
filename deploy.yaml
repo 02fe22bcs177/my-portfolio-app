@@ -1,6 +1,13 @@
 - hosts: web
   become: yes
   tasks:
+    - name: Docker login
+      shell: echo "{{ docker_password }}" | docker login -u "{{ docker_username }}" --password-stdin
+      vars:
+        docker_username: 02fe22bcs177
+        docker_password: Wilfred01@#$
+
+  
     - name: Stop existing container
       shell: docker rm -f myapp || true
 
