@@ -1,1 +1,8 @@
+<h2>Edit Portfolio</h2>
+<form action="/portfolios/<%= portfolio.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  Name: <input name="name" value="<%= portfolio.name %>" /><br/>
+  Role: <input name="role" value="<%= portfolio.role %>" /><br/>
+  Photo: <input type="file" name="photo" /><br/>
+  <button type="submit">Update</button>
+</form>
 
