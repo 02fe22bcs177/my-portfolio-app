@@ -1,10 +1,28 @@
-<h2><%= portfolio.name %></h2>
-<p>Role: <%= portfolio.role %></p>
-<% if (portfolio.photo) { %>
-  <img src="<%= portfolio.photo %>" width="200" />
-<% } %>
-<a href="/portfolios/<%= portfolio.id %>/edit">Edit</a>
-<form action="/portfolios/<%= portfolio.id %>?_method=DELETE" method="POST">
-  <button type="submit">Delete</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= portfolio.name %>'s Profile</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2><%= portfolio.name %></h2>
+    <p><strong>Role:</strong> <%= portfolio.role %></p>
 
+    <% if (portfolio.photo) { %>
+      <img src="<%= portfolio.photo %>" width="200" />
+    <% } else { %>
+      <p><em>No photo uploaded.</em></p>
+    <% } %>
+
+    <a href="/portfolios/<%= portfolio.id %>/edit" class="btn">✏️ Edit</a>
+
+    <form action="/portfolios/<%= portfolio.id %>?_method=DELETE" method="POST" style="margin-top: 10px;">
+      <button type="submit" class="btn danger">🗑️ Delete</button>
+    </form>
+
+    <a href="/" class="btn back-btn">← Back</a>
+  </div>
+</body>
+</html>
