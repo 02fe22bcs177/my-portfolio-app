@@ -73,6 +73,7 @@ app.delete('/portfolios/:id', (req, res) => {
   res.redirect('/');
 });
 
-app.listen(3000, '0.0.0.0', () => console.log("Server running"));
-
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
 });
+
