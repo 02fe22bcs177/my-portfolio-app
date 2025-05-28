@@ -14,5 +14,10 @@
     - name: Pull latest Docker image
       shell: docker pull 02fe22bcs177/myapp:latest
 
+    - name: Copy .env file to EC2
+      copy:
+        src: .env
+        dest: /home/ec2-user/.env
+
     - name: Run Docker container
-      shell: docker run -d -p 3000:3000 --name myapp --env-file .env your-dockerhub-user/myapp:latest
+      shell: docker run -d -p 3000:3000 --name myapp --env-file /home/ec2-user/.env 02fe22bcs177/myapp:latest
