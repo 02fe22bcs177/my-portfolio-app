@@ -17,7 +17,14 @@
     - name: Copy .env file to EC2
       copy:
         src: .env
-        dest: /home/ec2-user/.env
+        dest: /home/ec2-user/my-portfolio-app/.env
+
+    - name: Create uploads directory
+      file:
+        path: /home/ec2-user/my-portfolio-app/uploads
+        state: directory
+        mode: '0755'
+
 
     - name: Run Docker container
       shell: docker run -d -p 3000:3000 --name myapp --env-file /home/ec2-user/.env 02fe22bcs177/myapp:latest
