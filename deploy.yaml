@@ -14,6 +14,13 @@
     - name: Pull latest Docker image
       shell: docker pull 02fe22bcs177/myapp:latest
 
+    - name: Ensure app directory exists
+      file:
+        path: /home/ec2-user/my-portfolio-app
+        state: directory
+        mode: '0755'
+
+
     - name: Copy .env file to EC2
       copy:
         src: .env
