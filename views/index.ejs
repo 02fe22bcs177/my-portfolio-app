@@ -1,9 +1,40 @@
-<h1>Portfolios</h1>
-<a href="/portfolios/new">Add New</a>
-<ul>
-  <% portfolios.forEach(p => { %>
-    <li>
-      <a href="/portfolios/<%= p.id %>"><%= p.name %></a> - <%= p.role %>
-    </li>
-  <% }) %>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolios</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>My Portfolio Management</h1>
+      <a href="/portfolios/new" class="btn">➕ Add New Portfolio</a>
+    </header>
+
+    <section class="portfolio-list">
+      <% if (portfolios.length === 0) { %>
+        <p>No portfolios found. Add one!</p>
+      <% } else { %>
+        <ul>
+          <% portfolios.forEach(p => { %>
+            <li class="portfolio-item">
+              <div class="portfolio-photo">
+                <% if (p.photo) { %>
+                  <img src="/uploads/<%= p.photo %>" alt="<%= p.name %>" />
+                <% } else { %>
+                  <img src="/default-avatar.png" alt="No photo" />
+                <% } %>
+              </div>
+              <div class="portfolio-info">
+                <h3><a href="/portfolios/<%= p.id %>"><%= p.name %></a></h3>
+                <p><%= p.role %></p>
+              </div>
+            </li>
+          <% }) %>
+        </ul>
+      <% } %>
+    </section>
+  </div>
+</body>
+</html>
