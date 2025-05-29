@@ -2,17 +2,17 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #333;
+  background: #ECEFF1;
+  color: #212121;
 }
 
 .container {
   max-width: 800px;
   margin: 40px auto;
   padding: 0 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 header {
@@ -20,26 +20,26 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #B2DFDB;
 }
 
 h1 {
   margin: 0;
-  color: #007bff;
+  color: #009688;
 }
 
 .btn {
-  background-color: #007bff;
+  background-color: #009688;
   color: white;
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 5px;
-  font-size: 0.9rem;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
   transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #00796B;
 }
 
 .portfolio-list ul {
@@ -52,7 +52,7 @@ h1 {
   display: flex;
   align-items: center;
   padding: 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #CFD8DC;
 }
 
 .portfolio-photo img {
@@ -61,6 +61,7 @@ h1 {
   object-fit: cover;
   border-radius: 50%;
   margin-right: 20px;
+  border: 2px solid #B2DFDB;
 }
 
 .portfolio-info h3 {
@@ -69,7 +70,7 @@ h1 {
 
 .portfolio-info a {
   text-decoration: none;
-  color: #007bff;
+  color: #009688;
 }
 
 .portfolio-info a:hover {
@@ -79,54 +80,59 @@ h1 {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 20px 0;
+  gap: 14px;
+  margin: 25px 0;
 }
 
 .form label {
   font-weight: bold;
+  color: #37474F;
 }
 
 input[type="text"],
 input[type="file"],
 input[type="email"],
 input[type="password"] {
-  padding: 8px;
+  padding: 10px;
   font-size: 1rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  border-radius: 6px;
+  border: 1px solid #B0BEC5;
 }
 
 button.btn {
   padding: 10px 16px;
   border: none;
-  background-color: #007bff;
+  background-color: #009688;
   color: white;
   font-size: 1rem;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 button.btn:hover {
-  background-color: #0056b3;
+  background-color: #00796B;
 }
 
 button.btn.danger {
-  background-color: #dc3545;
+  background-color: #E53935;
 }
 
 button.btn.danger:hover {
-  background-color: #c82333;
+  background-color: #C62828;
 }
 
 a.btn.back-btn {
   display: inline-block;
   margin-top: 15px;
   text-decoration: none;
-  background-color: #6c757d;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 4px;
+  background-color: #FFC107;
+  color: #212121;
+  padding: 10px 14px;
+  border-radius: 6px;
+}
+
+a.btn.back-btn:hover {
+  background-color: #FFB300;
 }
 
 a.btn.back-btn:hover {
